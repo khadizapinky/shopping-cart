@@ -65,8 +65,8 @@
 
                      <div class="col-md-4 status">
                         <h5>$ <span id ="subtotal">1278</span></h5>
-                        <h5 >$ <span id="tax"> 0</span></h5>
-                        <h5>$ <span id="total"> 01,278</span> </h5>
+                        <h5 >$ <span id="tax"> 2</span></h5>
+                        <h5>$ <span id="total"> 1,280</span> </h5>
                      </div>
                   </div>
                </div>
@@ -90,17 +90,29 @@
            
            
           const Dollar = document.getElementById('dollar').innerText;
-         const addDollarnumber = parseInt(Dollar);
-         const addtotalDollar = addDollarnumber + 1219;
+          const addDollarnumber = parseInt(Dollar);
+          const addtotalDollar = addDollarnumber + 1219;
           document.getElementById('dollar').innerText = addtotalDollar;
           console.log(addtotalDollar);
 
          const subTotal = document.getElementById('subtotal').innerText;
          const subTotalnumber = parseInt(subTotal);
          const subtotalDollar = 1278 + addDollarnumber;
-          document.getElementById('subtotal').innerText = subtotalDollar;
-          
+         document.getElementById('subtotal').innerText = subtotalDollar;
          console.log(subtotalDollar);
+
+         const Tax = document.getElementById('tax').innerText;
+         const taxnumber = parseInt(Tax);
+         const taxtotal = taxnumber + 2;
+         document.getElementById('tax').innerText = taxtotal;
+         console.log(taxtotal);
+
+         const Total = document.getElementById('total').innerText;
+         const Totalnumber = parseInt(Total);
+         const totalDollar = subtotalDollar + taxtotal;
+         document.getElementById('total').innerText = totalDollar;
+         console.log(totalDollar);
+
 
 
       })
