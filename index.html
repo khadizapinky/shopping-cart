@@ -87,15 +87,20 @@
           const addtotalamount = addamountNumber + 1;
           document.getElementById('amount').value = addtotalamount;
           console.log(addtotalamount);
-
+           
+           
           const Dollar = document.getElementById('dollar').innerText;
-          const addDollarnumber = parseInt(Dollar);
-          const addtotalDollar = addDollarnumber + addDollarnumber;
+         const addDollarnumber = parseInt(Dollar);
+         const addtotalDollar = addDollarnumber + 1219;
           document.getElementById('dollar').innerText = addtotalDollar;
           console.log(addtotalDollar);
 
          const subTotal = document.getElementById('subtotal').innerText;
-         console.log(subTotal);
+         const subTotalnumber = parseInt(subTotal);
+         const subtotalDollar = 1278 + addDollarnumber;
+          document.getElementById('subtotal').innerText = subtotalDollar;
+          
+         console.log(subtotalDollar);
 
 
       })
@@ -108,9 +113,6 @@
           document.getElementById('amount').value = totalamount;
           console.log(totalamount);
           }
-
-
-
       })
    </script>
 </body>
