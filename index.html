@@ -16,7 +16,7 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div class="cart-item" id="phonediv">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -30,7 +30,7 @@
                            <button id="add" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="dollar">1219</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img src="images/remove.png" alt="" class="remove-item" id="phonecross">
                      </div>
                   </div>
                </div>
@@ -43,7 +43,7 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button id="caseminusbtn"  class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="caseplusvalue" type="text" class="form-control text-center" value="1">
                            <button id= "caseplusbtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
@@ -137,6 +137,33 @@
           document.getElementById('amount').value = totalamount;
           console.log(totalamount);
           }
+         const Dollar = document.getElementById('dollar').innerText;
+          const addDollarnumber = parseInt(Dollar);
+          const addtotalDollar = addDollarnumber - 1219;
+          document.getElementById('dollar').innerText = addtotalDollar;
+          console.log(addtotalDollar);
+
+          const CasePrice = document.getElementById('caseprice').innerText;
+         const CasePriceNo = parseInt(CasePrice);
+          
+         const subtotalDollar = addtotalDollar + CasePriceNo;
+         document.getElementById('subtotal').innerText = subtotalDollar;
+         console.log(subtotalDollar);
+
+
+         const Tax = document.getElementById('tax').innerText;
+         const taxnumber = parseInt(Tax);
+         const taxtotal = taxnumber - 2 ;
+         document.getElementById('tax').innerText = taxtotal;
+         console.log(taxtotal);
+
+         const Total = document.getElementById('total').innerText;
+         const Totalnumber = parseInt(Total);
+         const totalDollar = subtotalDollar + taxtotal;
+         document.getElementById('total').innerText = totalDollar;
+         console.log(totalDollar);
+
+          
       })
           //PHONE CASE PLUS BUTTION
           const CasePlusBtn = document.getElementById('caseplusbtn');
@@ -181,7 +208,62 @@
 
 
           })
-           
+         
+         //  PHONE CASE PLUS BUTTION
+          const CaseMinusBtn = document.getElementById('caseminusbtn');
+          CaseMinusBtn.addEventListener('click', function(){
+
+            //case plus value change 
+          const CasePlusValue = document.getElementById('caseplusvalue').value;
+          const CasePlusValueNumber = parseInt(CasePlusValue);
+          if(CasePlusValueNumber > 0 ){
+          const TotalCasePlusNo = CasePlusValueNumber - 1;
+          document.getElementById('caseplusvalue').value = TotalCasePlusNo;
+          console.log(TotalCasePlusNo);
+          }
+
+          // case price change
+          const CasePrice = document.getElementById('caseprice').innerText;
+          const CasePriceNo = parseInt(CasePrice);
+          const TotalCasePrice = CasePriceNo - 59;
+          document.getElementById('caseprice').innerText = TotalCasePrice;
+          console.log(TotalCasePrice);
+
+          const subTotal = document.getElementById('subtotal').innerText;
+         const subTotalnumber = parseInt(subTotal);
+          //plus phone price dollar
+         const Dollar = document.getElementById('dollar').innerText;
+         const addDollarnumber = parseInt(Dollar);
+        
+         const subtotalDollar = addDollarnumber + TotalCasePrice;
+         document.getElementById('subtotal').innerText = subtotalDollar;
+         console.log(subtotalDollar);
+
+         const Tax = document.getElementById('tax').innerText;
+         const taxnumber = parseInt(Tax);
+         const taxtotal = taxnumber - 2;
+         document.getElementById('tax').innerText = taxtotal;
+         console.log(taxtotal);
+
+         const Total = document.getElementById('total').innerText;
+         const Totalnumber = parseInt(Total);
+         const totalDollar = subtotalDollar + taxtotal;
+         document.getElementById('total').innerText = totalDollar;
+         console.log(totalDollar);
+
+
+          })
+
+       //phoneCross
+         const PhoneCross = document.getElementById('phonecross');
+         PhoneCross.addEventListener('click',function(){
+          const Phonediv = document.getElementById('phonediv');
+          Phonediv.remove();
+
+          })
+
+       
+       
    </script>
 </body>
 

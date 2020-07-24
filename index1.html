@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="phoneminusbtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input  id="phoneamount" type="text" class="form-control text-center" value="1">
+                           <button id="phoneplusbtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="dollar">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="caseminusbtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="caseplusvalue" type="text" class="form-control text-center" value="1">
+                           <button id= "caseplusbtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="caseprice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id ="subtotal">1278</span></h5>
+                        <h5 >$ <span id="tax"> 2</span></h5>
+                        <h5>$ <span id="total"> 1,280</span> </h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +77,52 @@
          </div>
       </div>
    </section>
+
+   <script>
+        // quantity value button
+          const addbtn = document.getElementById('phoneplusbtn');
+          addbtn.addEventListener('click', function(){
+              plusvalueButton("phoneamount");
+          })
+
+          const CasePlusBtn = document.getElementById('caseplusbtn');
+          CasePlusBtn.addEventListener('click', function(){
+             plusvalueButton("caseplusvalue");
+          })
+
+           function plusvalueButton(id){
+            const addAmount = document.getElementById(id).value;
+            const addamountNumber = parseInt(addAmount);
+            const addtotalamount = addamountNumber + 1;
+            document.getElementById(id).value = addtotalamount;
+            console.log(addtotalamount);
+
+           
+         }
+
+
+
+         const addbtn = document.getElementById('phoneminusbtn');
+          addbtn.addEventListener('click', function(){
+            minusvalueButton("phoneamount");
+          })
+
+          const CasePlusBtn = document.getElementById('caseminusbtn');
+          CasePlusBtn.addEventListener('click', function(){
+            minusvalueButton("caseplusvalue");
+          })
+
+         function minusvalueButton(id){
+            
+          const Amount = document.getElementById(id).value;
+          const amountNumber = parseInt(Amount);
+          if(amountNumber > 0 ){
+          const totalamount = amountNumber - 1;
+          document.getElementById(id).value = totalamount;
+          console.log(totalamount);
+          }
+         }
+   </script>
 </body>
 
 </html>
